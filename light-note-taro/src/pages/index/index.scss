@@ -1,0 +1,111 @@
+ .index-page {
+   display: flex;
+   flex-direction: column;
+   height: 100vh;
+   background-color: #f5f5f5;
+
+   .header {
+     background-color: #fff;
+     padding: 10px;
+   }
+
+   .note-list {
+     flex: 1;
+     padding: 20px;
+     box-sizing: border-box;
+
+     .empty-state {
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       margin-top: 200px;
+
+       .empty-text {
+         font-size: 28px;
+         color: #999;
+         margin-top: 20px;
+       }
+     }
+
+     .note-item {
+       background-color: #fff;
+       border-radius: 12px;
+       padding: 24px;
+       margin-bottom: 20px;
+       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+       display: flex;
+       align-items: center;
+
+       &.selected {
+         background-color: #e6f7ff;
+       }
+
+       .note-content {
+         flex: 1;
+
+         .text-preview {
+           font-size: 32px;
+           color: #333;
+           line-height: 1.5;
+           display: -webkit-box;
+           -webkit-box-orient: vertical;
+           -webkit-line-clamp: 2;
+           overflow: hidden;
+         }
+
+         .note-footer {
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+           margin-top: 16px;
+
+           .date {
+             font-size: 24px;
+             color: #999;
+           }
+         }
+       }
+
+       .select-indicator {
+         margin-left: 20px;
+       }
+     }
+   }
+
+   .fab-container {
+     position: fixed;
+     right: 40px;
+     bottom: 40px;
+     z-index: 10;
+   }
+
+   .batch-footer {
+     position: fixed;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     height: 100px;
+     background-color: #fff;
+     display: flex;
+     border-top: 1px solid #eee;
+     z-index: 100;
+
+     .btn {
+       flex: 1;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       font-size: 32px;
+
+       &.cancel {
+         color: #333;
+       }
+
+       &.delete {
+         color: #ff4d4f;
+         border-left: 1px solid #eee;
+       }
+     }
+   }
+ }

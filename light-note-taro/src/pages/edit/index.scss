@@ -1,0 +1,62 @@
+ .edit-page {
+   display: flex;
+   flex-direction: column;
+   height: 100vh;
+   background-color: #fff;
+
+   .header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 20px 30px;
+     border-bottom: 1px solid #eee;
+
+     .cancel-btn {
+       font-size: 32px;
+       color: #666;
+     }
+
+     .at-button {
+       margin: 0;
+       width: 120px;
+       height: 60px;
+       line-height: 60px;
+       font-size: 28px;
+     }
+   }
+
+   .editor-container {
+     flex: 1;
+     padding: 30px;
+     box-sizing: border-box;
+
+     .content-input {
+       width: 100%;
+       min-height: 400px;
+       font-size: 34px;
+       line-height: 1.6;
+       color: #333;
+     }
+   }
+
+   .toolbar {
+     height: 100px;
+     border-top: 1px solid #eee;
+     display: flex;
+     align-items: center;
+     padding: 0 30px;
+     background-color: #f9f9f9;
+
+     .tool-item {
+       display: flex;
+       align-items: center;
+       margin-right: 40px;
+
+       .tool-label {
+         font-size: 26px;
+         color: #666;
+         margin-left: 10px;
+       }
+     }
+   }
+ }
