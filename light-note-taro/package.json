@@ -1,31 +1,40 @@
 {
-  "name": "light-note-taro",
-  "version": "1.0.0",
-  "private": true,
-  "description": "A light note app built with Taro",
-  "scripts": {
-    "build:weapp": "taro build --type weapp",
-    "build:rn": "taro build --type rn",
-    "dev:weapp": "npm run build:weapp -- --watch",
-    "dev:rn": "npm run build:rn -- --watch"
-  },
-  "dependencies": {
-    "@tarojs/components": "3.x",
-    "@tarojs/helper": "3.x",
-    "@tarojs/plugin-framework-react": "3.x",
-    "@tarojs/plugin-platform-weapp": "3.x",
-    "@tarojs/react": "3.x",
-    "@tarojs/runtime": "3.x",
-    "@tarojs/shared": "3.x",
-    "@tarojs/taro": "3.x",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "taro-ui": "^3.1.0-beta.2"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.8.0",
-    "@tarojs/cli": "3.x",
-    "@types/react": "^18.0.0",
-    "babel-preset-taro": "3.x"
-  }
+    "name": "light-note-taro",
+    "version": "1.0.0",
+    "private": true,
+    "description": "A light note app built with Taro",
+    "scripts": {
+        "build:weapp": "taro build --type weapp",
+        "build:rn": "taro build --type rn",
+        "dev:weapp": "npm run build:weapp -- --watch",
+        "dev:rn": "npm run build:rn -- --watch",
+        "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix",
+        "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,scss,css}\""
+    },
+    "dependencies": {
+        "@tarojs/components": "3.x",
+        "@tarojs/helper": "3.x",
+        "@tarojs/plugin-framework-react": "3.x",
+        "@tarojs/plugin-platform-weapp": "3.x",
+        "@tarojs/react": "3.x",
+        "@tarojs/runtime": "3.x",
+        "@tarojs/shared": "3.x",
+        "@tarojs/taro": "3.x",
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0",
+        "taro-ui": "^3.1.0-beta.2"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.8.0",
+        "@tarojs/cli": "3.x",
+        "@types/react": "^18.0.0",
+        "babel-preset-taro": "3.x",
+        "eslint": "^8.0.0",
+        "eslint-config-taro": "3.x",
+        "eslint-plugin-react": "^7.32.0",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-config-prettier": "^9.0.0",
+        "eslint-plugin-prettier": "^5.0.0",
+        "prettier": "^3.0.0"
+    }
 }

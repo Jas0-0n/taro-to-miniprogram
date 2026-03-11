@@ -5,8 +5,8 @@ import { NotesService } from './notes.service';
 import { Note } from './entities/note.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Note])],
-  controllers: [NotesController],
-  providers: [NotesService],
+    imports: [TypeOrmModule.forFeature([Note])],
+    controllers: [NotesController],
+    providers: [NotesService],
 })
 export class NotesModule {}

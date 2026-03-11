@@ -4,12 +4,12 @@ import { UploadService } from './upload.service';
 
 @Controller('upload')
 export class UploadController {
-  constructor(private readonly uploadService: UploadService) {}
+    constructor(private readonly uploadService: UploadService) {}
 
-  @Post('image')
-  @UseInterceptors(FileInterceptor('file'))
-  async upload(@UploadedFile() file: any) {
-    const url = await this.uploadService.uploadImage(file);
-    return { url };
-  }
+    @Post('image')
+    @UseInterceptors(FileInterceptor('file'))
+    async upload(@UploadedFile() file: any) {
+        const url = await this.uploadService.uploadImage(file);
+        return { url };
+    }
 }
