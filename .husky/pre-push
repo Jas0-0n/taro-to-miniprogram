@@ -1,1 +1,5 @@
-cd light-note-nest && npm run format && cd ../light-note-taro && npm run format && git add .
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npm run format
+git add .
