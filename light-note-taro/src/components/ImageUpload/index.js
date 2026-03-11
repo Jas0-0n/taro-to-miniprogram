@@ -1,21 +1,21 @@
-import { View, Image, Text } from "@tarojs/components";
-import Taro from "@tarojs/taro";
-import { AtIcon } from "taro-ui";
-import { uploadImage } from "../../api/upload";
-import "./index.scss";
+import { View, Image, Text } from '@tarojs/components';
+import Taro from '@tarojs/taro';
+import { AtIcon } from 'taro-ui';
+import { uploadImage } from '../../api/upload';
+import './index.scss';
 
 export default function ImageUpload({ images = [], onChange }) {
     const chooseImage = async () => {
         if (images.length >= 5) {
-            Taro.showToast({ title: "最多只能上传5张图片", icon: "none" });
+            Taro.showToast({ title: '最多只能上传5张图片', icon: 'none' });
             return;
         }
 
         try {
             const res = await Taro.chooseImage({
                 count: 5 - images.length,
-                sizeType: ["compressed"],
-                sourceType: ["album", "camera"],
+                sizeType: ['compressed'],
+                sourceType: ['album', 'camera'],
             });
 
             const uploadPromises = res.tempFilePaths.map((path) => uploadImage(path));
@@ -23,7 +23,7 @@ export default function ImageUpload({ images = [], onChange }) {
 
             onChange([...images, ...urls]);
         } catch (err) {
-            console.error("Choose image error:", err);
+            console.error('Choose image error:', err);
         }
     };
 
@@ -44,12 +44,7 @@ export default function ImageUpload({ images = [], onChange }) {
         <View className="image-upload">
             {images.map((url, index) => (
                 <View key={index} className="image-item">
-                    <Image
-                        src={url}
-                        className="img"
-                        mode="aspectFill"
-                        onClick={() => previewImage(url)}
-                    />
+                    <Image src={url} className="img" mode="aspectFill" onClick={() => previewImage(url)} />
                     <View className="remove-btn" onClick={() => removeImage(index)}>
                         <AtIcon value="close" size="12" color="#fff" />
                     </View>

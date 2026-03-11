@@ -1,30 +1,30 @@
-import { useState, useEffect } from "react";
-import Taro, { useRouter } from "@tarojs/taro";
-import { View, Textarea, Text, ScrollView } from "@tarojs/components";
-import { AtButton, AtIcon, AtFloatLayout } from "taro-ui";
-import { getNote, createNote, updateNote } from "../../api/note";
-import EmojiPicker from "../../components/EmojiPicker";
-import ImageUpload from "../../components/ImageUpload";
-import CalendarPicker from "../../components/CalendarPicker";
-import "./index.scss";
+import { useState, useEffect } from 'react';
+import Taro, { useRouter } from '@tarojs/taro';
+import { View, Textarea, Text, ScrollView } from '@tarojs/components';
+import { AtButton, AtIcon, AtFloatLayout } from 'taro-ui';
+import { getNote, createNote, updateNote } from '../../api/note';
+import EmojiPicker from '../../components/EmojiPicker';
+import ImageUpload from '../../components/ImageUpload';
+import CalendarPicker from '../../components/CalendarPicker';
+import './index.scss';
 
 export default function Edit() {
     const router = useRouter();
     const id = router.params.id;
 
-    const [content, setContent] = useState("");
+    const [content, setContent] = useState('');
     const [images, setImages] = useState([]);
-    const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
+    const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
     const [showEmoji, setShowEmoji] = useState(false);
     const [showCalendar, setShowCalendar] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     useEffect(() => {
         if (id) {
-            Taro.setNavigationBarTitle({ title: "编辑笔记" });
+            Taro.setNavigationBarTitle({ title: '编辑笔记' });
             fetchNote(id);
         } else {
-            Taro.setNavigationBarTitle({ title: "新增笔记" });
+            Taro.setNavigationBarTitle({ title: '新增笔记' });
         }
     }, [id]);
 
@@ -32,16 +32,16 @@ export default function Edit() {
         try {
             const res = await getNote(noteId);
             setContent(res.content);
-            setImages(res.images ? res.images.split(",") : []);
+            setImages(res.images ? res.images.split(',') : []);
             setDate(res.date);
         } catch (err) {
-            console.error("Fetch note error:", err);
+            console.error('Fetch note error:', err);
         }
     };
 
     const handleSave = async () => {
         if (!content.trim() && images.length === 0) {
-            Taro.showToast({ title: "内容或图片不能为空", icon: "none" });
+            Taro.showToast({ title: '内容或图片不能为空', icon: 'none' });
             return;
         }
 
@@ -49,7 +49,7 @@ export default function Edit() {
             setIsSubmitting(true);
             const data = {
                 content,
-                images: images.join(","),
+                images: images.join(','),
                 date,
             };
 
@@ -59,12 +59,12 @@ export default function Edit() {
                 await createNote(data);
             }
 
-            Taro.showToast({ title: "保存成功", icon: "success" });
+            Taro.showToast({ title: '保存成功', icon: 'success' });
             setTimeout(() => {
                 Taro.navigateBack();
             }, 1500);
         } catch (err) {
-            console.error("Save note error:", err);
+            console.error('Save note error:', err);
             setIsSubmitting(false);
         }
     };
@@ -120,19 +120,11 @@ export default function Edit() {
                 </View>
             </View>
 
-            <AtFloatLayout
-                isOpened={showEmoji}
-                title="选择表情"
-                onClose={() => setShowEmoji(false)}
-            >
+            <AtFloatLayout isOpened={showEmoji} title="选择表情" onClose={() => setShowEmoji(false)}>
                 <EmojiPicker onSelect={onSelectEmoji} />
             </AtFloatLayout>
 
-            <AtFloatLayout
-                isOpened={showCalendar}
-                title="选择日期"
-                onClose={() => setShowCalendar(false)}
-            >
+            <AtFloatLayout isOpened={showCalendar} title="选择日期" onClose={() => setShowCalendar(false)}>
                 <CalendarPicker currentDate={date} onSelect={onSelectDate} />
             </AtFloatLayout>
         </View>
