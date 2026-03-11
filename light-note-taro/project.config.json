@@ -1,14 +1,14 @@
 {
-  "miniprogramRoot": "./dist",
-  "projectname": "light-note-taro",
-  "description": "Taro project",
-  "appid": "touristappid",
-  "setting": {
-    "urlCheck": false,
-    "es6": true,
-    "postcss": true,
-    "minified": true
-  },
-  "compileType": "miniprogram",
-  "libVersion": "2.30.0"
+    "miniprogramRoot": "./dist",
+    "projectname": "light-note-taro",
+    "description": "Taro project",
+    "appid": "touristappid",
+    "setting": {
+        "urlCheck": false,
+        "es6": true,
+        "postcss": true,
+        "minified": true
+    },
+    "compileType": "miniprogram",
+    "libVersion": "2.30.0"
 }

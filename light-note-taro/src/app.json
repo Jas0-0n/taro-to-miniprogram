@@ -1,13 +1,9 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/detail/index",
-    "pages/edit/index"
-  ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#409EFF",
-    "navigationBarTitleText": "轻记",
-    "navigationBarTextStyle": "white"
-  }
+    "pages": ["pages/index/index", "pages/detail/index", "pages/edit/index"],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#409EFF",
+        "navigationBarTitleText": "轻记",
+        "navigationBarTextStyle": "white"
+    }
 }
